@@ -1,0 +1,131 @@
+<!Doctype html> 
+<html lang='en-IN'> 
+<head>
+<meta name="charset" content="utf-8"/>
+<title> KMC EDOF </title>
+<meta name="description"content="A Database Of Fungus IN Kirori Mal College"/>
+<meta name="keywords"content="Kirori Mal College|Fungus"/>
+<meta name="theme-color"content="#341578"/>
+<meta name="author"content="Department of Botany Kirori Mal College"/>
+<meta name="viewport" content="width=device-width,intial-scaling=1.0">
+     <style> html{
+         overflow:hidden;
+     }
+header{ height:70vh;
+background-image:url("./hi.jpg");
+background-size:cover;
+margin:-7px;
+     }
+     .top{
+    display:inline;
+    margin-left:3%;
+    color:white;
+    position
+     }
+     input {
+         padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 60%;
+  background: #f1f1f1;
+     }
+      button {
+  float: left;
+  width: 15%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+     .menu-icon {
+        
+         color:#ffffff;
+         margin-left:25%;
+         font-size:32px;
+     }
+        #sidebar {
+height: 100vh; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #1390ff; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+     #sidebar a {
+ 
+  text-decoration: none;
+  font-size: 35px;
+  color: White;
+  display: block;
+  transition: 0.3s;
+}
+.closebtn {
+margin-left:90%;
+ margin-top:10px;
+}
+     </style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+   <header> 
+   <div class="nav"> 
+   <IMG src="./logo.png" style="float:left;" width="15%" height="60px"/>
+   <h1 class="top">KMC EDOF </h1>
+   <span onclick="show()" class="menu-icon">&#9776; </span>
+   </div>
+   <div style="text-align:center;margin-top:24vh;color:white;"> <h1> KMC EDOF </h1>
+   <span style="color:white;"> Database of fungus in Kirori Mal College</span>
+   </div>
+   
+   <form style="text-align:center;"> 
+   <input list="fungi"placeholder="Enter the name of fungi" >
+   <datalist id="fungi">
+  <option value="plurotus">
+  <option value="mychorhiza">
+
+</datalist>
+  <button onclick="record()" >
+      <i class="fa fa-microphone"></i>
+  </button>  <button onclick="search()" >
+      <i class="fa fa-search"></i>
+  </button>
+   </form><br>
+   </header> 
+  
+   <footer  style="height:30vh;background:#341578;color:white;text-align:center;margin:-7px;padding-top:18px;">
+       <span ><i>®KMC EDOF 2022</i></span>
+       
+       <p style="text-align:initial;"> 
+       follow us on:
+       <br>
+
+       </p>
+       
+   </footer>
+   <div id="sidebar"> 
+   <a href="#" class="closebtn" 
+   onclick="cl()">&times;</a>
+   <a href="./aboutus.html" >About Us</a>
+   
+   </div>
+<script>
+  function show(){
+document.getElementById('sidebar').style.width="100%";
+
+    }
+function cl(){
+document.getElementById('sidebar').style.width="0";
+
+    }
+    
+
+</script>
+</body>
+</html>
