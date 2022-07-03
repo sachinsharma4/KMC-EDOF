@@ -3,16 +3,21 @@
 <head>
 <meta name="charset" content="utf-8"/>
 <title> KMC EDOF </title>
-<meta name="description"content="A Database Of Fungus IN Kirori Mal College"/>
-<meta name="keywords"content="Kirori Mal College|Fungus"/>
-<meta name="theme-color"content="#341578"/>
-<meta name="author"content="Department of Botany Kirori Mal College"/>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <meta name="google-site-verification" content="soMcXqCww92xM3Bga06YtHraYHuY-ixNtEEqa4JIves" />
+<meta name="description" content="A Database Of Fungus IN Kirori Mal College"/>
+<meta name="keywords" content="Kirori Mal College|Fungus"/>
+<meta name="theme-color" content="#341578"/>
+<meta name="author" content="Department of Botany Kirori Mal College"/>
 <meta name="viewport" content="width=device-width,intial-scaling=1.0">
+
      <style> html{
          overflow:hidden;
      }
 header{ height:70vh;
-background-image:url("https://kmcedofs.ml/hi.jpg");
+background-image:url("./hi.jpg");
 background-size:cover;
 margin:-7px;
      }
@@ -20,10 +25,10 @@ margin:-7px;
     display:inline;
     margin-left:3%;
     color:white;
-    position
+   
      }
      input {
-         padding: 10px;
+         padding: 12px;
   font-size: 17px;
   border: 1px solid grey;
   float: left;
@@ -33,10 +38,10 @@ margin:-7px;
       button {
   float: left;
   width: 15%;
-  padding: 10px;
+  padding: 8px;
   background: #2196F3;
   color: white;
-  font-size: 17px;
+  font-size: 15px;
   border: 1px solid grey;
   border-left: none; /* Prevent double borders */
   cursor: pointer;
@@ -45,12 +50,12 @@ margin:-7px;
         
          color:#ffffff;
          margin-left:25%;
-         font-size:32px;
+         font-size:25px;
      }
         #sidebar {
 height: 100vh; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
+  position:fixed; /* Stay in place */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
@@ -71,12 +76,17 @@ height: 100vh; /* 100% Full-height */
 margin-left:90%;
  margin-top:10px;
 }
-     </style><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+.nav{
+    text-align:right;
+}
+
+     </style>
+
 </head>
 <body>
    <header> 
    <div class="nav"> 
-   <IMG src="https://kmcedofs.ml/logo.png" style="float:left;" width="15%" height="60px"/>
+   <IMG src="./logo.png" alt="KMC" style="float:left;" width="40" height="60"/>
    <h1 class="top">KMC EDOF </h1>
    <span onclick="show()" class="menu-icon">&#9776; </span>
    </div>
@@ -84,26 +94,28 @@ margin-left:90%;
    <span style="color:white;"> Database of fungus in Kirori Mal College</span>
    </div>
    
-   <form style="text-align:center;"> 
-   <input list="fungi"placeholder="Enter the name of fungi" >
+   <form id="form"  style="text-align:center;"> 
+   <input id="o" list="fungi" placeholder="Enter the name of fungi" >
    <datalist id="fungi">
-  <option value="plurotus">
+  <option value="pleurotus">
   <option value="mychorhiza">
 
 </datalist>
-  <button onclick="record()" >
-      <i class="fa fa-microphone"></i>
-  </button>  <button onclick="search()" >
-      <i class="fa fa-search"></i>
+  <button onclick="search()" >
+            <i class="material-icons">search</i>
+  
   </button>
-   </form><br>
+   </form><button onclick="record()" >
+      <i class="material-icons">mic</i>
+  </button>  
+   <br>
    </header> 
   
-   <footer  style="height:30vh;background:#341578;color:white;text-align:center;margin:-7px;padding-top:18px;">
-       <span ><i>®KMC EDOF 2022</i></span>
+   <footer  style="height:20vh;background:#066664;color:white;text-align:center;margin:-7px;padding-top:18px;">
+       <span ><i>&#174; KMC EDOF 2022</i></span>
        
        <p style="text-align:initial;"> 
-       follow us on:
+       follow us on: 
        <br>
 
        </p>
@@ -116,6 +128,30 @@ margin-left:90%;
    
    </div>
 <script>
+ var a=[
+    {
+    "fungi":"pleurotus",
+    "link":"./pleurotus.html"
+},
+    {
+    "fungi":"mychorhiza",
+    "link":"./mychorhiza.html"
+}
+]
+function record() {
+document.getElementById('o').placeholder ="listening";
+    var recognition = new webkitSpeechRecognition();
+recognition.lang = "en-US";
+recognition.onresult = function(event) {
+document.getElementById('o').value=event.results[0][0].transcript;}
+recognition.onerror = function(error) {
+document.getElementById('o').value= "Enter the name of fungi";
+    alert(error);
+}
+recognition.start();
+    
+    
+};
   function show(){
 document.getElementById('sidebar').style.width="100%";
 
@@ -124,7 +160,16 @@ function cl(){
 document.getElementById('sidebar').style.width="0";
 
     }
+    function search(){
+        var query =document.getElementById('o') ;
+        for(i=0;i<a.length;i++){
+if(a[i].fungi==query.value){
     
+    document.getElementById('form').action=a[i].link;
+    
+}
+        }
+    }
 
 </script>
 </body>
