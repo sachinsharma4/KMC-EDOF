@@ -17,7 +17,7 @@ recognition.onresult = function(event) {
 document.getElementById('o').value=event.results[0][0].transcript;}
 recognition.onerror = function(error) {
 document.getElementById('o').value= "Enter the name of fungi";
-    alert(error);
+    
 }
 recognition.start();
     
