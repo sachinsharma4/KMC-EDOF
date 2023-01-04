@@ -14,6 +14,7 @@
 <meta name="viewport" content="width=device-width,intial-scaling=1.0">
 
      <style>
+        
 header{ height:70vh;
 background-image:url("./hi.jpg");
 background-size:cover;
@@ -45,9 +46,10 @@ margin:-7px;
   cursor: pointer;
 }
      .menu-icon {
-        
+        position: fixed;
+        right: 0cm;
          color:#ffffff;
-         margin-left:25%;
+         
          font-size:25px;
      }
         #sidebar {
@@ -73,9 +75,10 @@ height: 100vh; /* 100% Full-height */
 .closebtn {
 margin-left:90%;
  margin-top:10px;
+ 
 }
 .nav{
-    text-align:right;
+    text-align:center;
 }
 
      </style>
@@ -92,24 +95,26 @@ margin-left:90%;
    <span style="color:white;"> Database of fungus in Kirori Mal College</span>
    </div>
    
-   <form id="form"  style="text-align:center;"> 
+   <form id="form"   style="margin-left:10%;width: auto;"> 
    <input id="o" list="fungi" placeholder="Enter the name of fungi" >
-   <datalist id="fungi">
+
+<datalist id="fungi">
   <option value="pleurotus">
   <option value="mychorhiza">
 
 </datalist>
-  <button onclick="search()" >
-            <i class="material-icons">search</i>
+<button onclick="search()" >
+<i class="material-icons">search</i>
+</button><button onclick="record()" >
+    <i class="material-icons">mic</i>
+    </button>
+</form>
   
-  </button>
-   </form><button onclick="record()" >
-      <i class="material-icons">mic</i>
-  </button>  
-   <br>
-   </header> 
-  
-   <footer  style="height:20vh;background:#066664;color:white;text-align:center;margin:-7px;padding-top:18px;">
+<br>
+
+</header> 
+  <!-- footer -->
+   <footer  style="height:30vh;background:#066664;color:white;text-align:center;margin:-7px;padding-top:18px;">
        <span ><i>&#174; KMC EDOF 2022</i></span>
        
        <p style="text-align:initial;"> 
@@ -119,56 +124,13 @@ margin-left:90%;
        </p>
        
    </footer>
+   <!-- sidebar -->
    <div id="sidebar"> 
    <a href="#" class="closebtn" 
    onclick="cl()">&times;</a>
    <a href="./aboutus.html" >About Us</a>
    
    </div>
-<script>
- var a=[
-    {
-    "fungi":"pleurotus",
-    "link":"./pleurotus.html"
-},
-    {
-    "fungi":"mychorhiza",
-    "link":"./mychorhiza.html"
-}
-]
-function record() {
-document.getElementById('o').placeholder ="listening";
-    var recognition = new webkitSpeechRecognition();
-recognition.lang = "en-US";
-recognition.onresult = function(event) {
-document.getElementById('o').value=event.results[0][0].transcript;}
-recognition.onerror = function(error) {
-document.getElementById('o').value= "Enter the name of fungi";
-    alert(error);
-}
-recognition.start();
-    
-    
-};
-  function show(){
-document.getElementById('sidebar').style.width="100%";
-
-    }
-function cl(){
-document.getElementById('sidebar').style.width="0";
-
-    }
-    function search(){
-        var query =document.getElementById('o') ;
-        for(i=0;i<a.length;i++){
-if(a[i].fungi==query.value){
-    
-    document.getElementById('form').action=a[i].link;
-    
-}
-        }
-    }
-
-</script>
+   <script src="index.js"></script>
 </body>
 </html>
